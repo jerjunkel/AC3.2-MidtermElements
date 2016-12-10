@@ -35,11 +35,31 @@ class DetailViewController: UIViewController {
     }
     
     func setUpView(){
+        
+        if let number = element.number{
+            self.elementNumber.text = String(number)
+        }else{
+            self.elementNumber.text = "--"
+        }
+        
+        if let boilingpoint = element.boilingPoint{
+            self.boilingPointLabel.text = String(boilingpoint)
+        }else{
+            self.boilingPointLabel.text = "null"
+        }
+        
+        if let meltingPoint = element.meltingPoint{
+            self.meltingPointLabel.text = String(meltingPoint)
+        }else{
+            self.meltingPointLabel.text = "null"
+        }
+        
+        if let weight = element.weight{
+            self.weightLabel.text = String(weight)
+        }else{
+            self.weightLabel.text = "null"
+        }
         self.title = element.name
-        self.elementNumber.text = "#\(element.number!)"
-        self.boilingPointLabel.text = String(describing: element.boilingPoint ?? nil)
-        self.meltingPointLabel.text = String(describing: element.meltingPoint ?? nil)
-        self.weightLabel.text = String(describing: element.weight ?? nil)
         self.yearFoudLabel.text = String(element.discoveryYear )
         self.symbolLabel.text = element.symbol
         

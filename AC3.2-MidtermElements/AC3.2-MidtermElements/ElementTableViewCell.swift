@@ -25,9 +25,13 @@ class ElementTableViewCell: UITableViewCell {
     }
     
     func setupCell(){
-
+        
         self.elementName.text = element.name
-        self.elementDetail.text = "\(element.symbol)(\(element.number!)) \(element.weight!)"
+        if let number = element.number, let weight = element.weight{
+            self.elementDetail.text = "\(element.symbol)(\(number)) \(weight)"
+        }else{
+            self.elementDetail.text = "\(element.symbol)"
+        }
         
         ApiRequestManager.manager.makeRequest(to: "https://s3.amazonaws.com/ac3.2-elements/\(element.symbol)_200.png") { (data) in
             if let data = data{

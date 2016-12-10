@@ -28,7 +28,7 @@ class ApiRequestManager{
         
         switch method{
         case .get:
-            print("get method")
+            //print("get method")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
         case .post:
             request.addValue("application/json", forHTTPHeaderField: "Accept")
